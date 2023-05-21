@@ -1,4 +1,5 @@
 import 'package:crypto_currency/Providers/crypto_data_provider.dart';
+import 'package:crypto_currency/Providers/marketview_provider.dart';
 import 'package:crypto_currency/Providers/theme_provider.dart';
 import 'package:crypto_currency/Ui/Ui_helper/theme_switcher.dart';
 import 'package:crypto_currency/main_wrapper.dart';
@@ -20,6 +21,9 @@ void main() async {
         ChangeNotifierProvider(
           create: (context) => CryptoDataProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => MarketViewProvider(),
+        )
       ],
       child: const MyApp(),
     ),
