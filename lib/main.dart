@@ -1,6 +1,7 @@
 import 'package:crypto_currency/Providers/crypto_data_provider.dart';
 import 'package:crypto_currency/Providers/marketview_provider.dart';
 import 'package:crypto_currency/Providers/theme_provider.dart';
+import 'package:crypto_currency/Providers/user_data_provider.dart';
 import 'package:crypto_currency/Ui/Ui_helper/theme_switcher.dart';
 import 'package:crypto_currency/Ui/signup_screen.dart';
 import 'package:crypto_currency/main_wrapper.dart';
@@ -24,6 +25,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (context) => MarketViewProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UserDataProvider(),
         )
       ],
       child: const MyApp(),
