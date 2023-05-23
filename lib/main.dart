@@ -2,6 +2,7 @@ import 'package:crypto_currency/Providers/crypto_data_provider.dart';
 import 'package:crypto_currency/Providers/marketview_provider.dart';
 import 'package:crypto_currency/Providers/theme_provider.dart';
 import 'package:crypto_currency/Ui/Ui_helper/theme_switcher.dart';
+import 'package:crypto_currency/Ui/signup_screen.dart';
 import 'package:crypto_currency/main_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -56,7 +57,7 @@ class MyApp extends StatelessWidget {
           ],
           home: const Directionality(
             textDirection: TextDirection.ltr,
-            child: MainWrapper(),
+            child: SignUpScreen(),
           ),
         );
       },
