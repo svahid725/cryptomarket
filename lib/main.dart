@@ -1,11 +1,11 @@
-import 'package:crypto_currency/Providers/crypto_data_provider.dart';
-import 'package:crypto_currency/Providers/marketview_provider.dart';
-import 'package:crypto_currency/Providers/theme_provider.dart';
-import 'package:crypto_currency/Providers/user_data_provider.dart';
-import 'package:crypto_currency/Ui/Ui_helper/theme_switcher.dart';
-import 'package:crypto_currency/Ui/signup_screen.dart';
-import 'package:crypto_currency/main_wrapper.dart';
+
+import 'package:crypto_currency/logic/Providers/crypto_data_provider.dart';
+import 'package:crypto_currency/logic/Providers/marketview_provider.dart';
+import 'package:crypto_currency/logic/Providers/theme_provider.dart';
+import 'package:crypto_currency/logic/Providers/user_data_provider.dart';
+import 'package:crypto_currency/presentation/Ui/signup_screen.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';

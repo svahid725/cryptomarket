@@ -1,6 +1,4 @@
 
-import 'package:crypto_currency/models/AllCryptoModel.dart';
-
 class ResponseModel {
   late Status status;
   late dynamic data;

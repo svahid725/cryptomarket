@@ -1,10 +1,13 @@
-import 'package:crypto_currency/models/AllCryptoModel.dart';
-import 'package:crypto_currency/network/api.dart';
-import 'package:crypto_currency/network/response_model.dart';
+
+import 'package:crypto_currency/data/data_source/api.dart';
+import 'package:crypto_currency/data/data_source/response_model.dart';
+import 'package:crypto_currency/data/models/AllCryptoModel.dart';
+import 'package:crypto_currency/data/repositories/crypto_data_repository.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class CryptoDataProvider extends ChangeNotifier {
+  CryptoDataRepository repository = CryptoDataRepository();
   ApiCallProvider apiCallProvider = ApiCallProvider();
   late AllCryptoModel dataFuture;
   late ResponseModel state;
@@ -29,16 +32,12 @@ class CryptoDataProvider extends ChangeNotifier {
 
   getTopGainersData() async {
     state = ResponseModel.loading('loading...');
-    try {
-      Response response = await ApiCallProvider().getTopGainersData();
-      if (response.statusCode == 200) {
-        dataFuture = AllCryptoModel.fromJson(response.data);
+    try{
+        dataFuture = await repository.getTopGainersData();
         state = ResponseModel.completed(dataFuture);
-      } else {
-        state = ResponseModel.error('please try again');
+        notifyListeners();
       }
-      notifyListeners();
-    } catch (e) {
+    catch (e) {
       state = ResponseModel.error('something went wrong!');
       notifyListeners();
     }

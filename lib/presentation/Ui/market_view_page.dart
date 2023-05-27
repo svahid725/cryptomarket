@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:crypto_currency/Providers/marketview_provider.dart';
-import 'package:crypto_currency/Ui/Ui_helper/shimmer_marketview_widget.dart';
-import 'package:crypto_currency/models/CryptoData.dart';
+import 'package:crypto_currency/data/data_source/response_model.dart';
+import 'package:crypto_currency/data/models/CryptoData.dart';
+import 'package:crypto_currency/logic/Providers/marketview_provider.dart';
+import 'package:crypto_currency/presentation/Ui/Ui_helper/shimmer_marketview_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,7 +12,7 @@ import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../helpers/decimalRounder.dart';
-import '../network/response_model.dart';
+
 
 class MarketViewPage extends StatefulWidget {
   const MarketViewPage({Key? key}) : super(key: key);
@@ -247,7 +248,7 @@ class _MarketViewPageState extends State<MarketViewPage> {
                                                   children: [
                                                     percentIcon,
                                                     Text(
-                                                      percentChange + "%",
+                                                      "$percentChange%",
                                                       style: GoogleFonts.ubuntu(
                                                           color: percentColor,
                                                           fontSize: 13),

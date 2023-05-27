@@ -1,7 +1,8 @@
-import 'package:crypto_currency/Ui/Ui_helper/Bottom_nav.dart';
-import 'package:crypto_currency/Ui/home_page.dart';
-import 'package:crypto_currency/Ui/market_view_page.dart';
-import 'package:crypto_currency/Ui/profile_page.dart';
+
+import 'package:crypto_currency/presentation/Ui/Ui_helper/Bottom_nav.dart';
+import 'package:crypto_currency/presentation/Ui/home_page.dart';
+import 'package:crypto_currency/presentation/Ui/market_view_page.dart';
+import 'package:crypto_currency/presentation/Ui/profile_page.dart';
 import 'package:flutter/material.dart';
 
 class MainWrapper extends StatefulWidget {
@@ -27,7 +28,7 @@ class _MainWrapperState extends State<MainWrapper> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: PageView(
         controller: _myPage,
-        children: [
+        children: const [
           HomePage(),
           MarketViewPage(),
           ProfilePage(),

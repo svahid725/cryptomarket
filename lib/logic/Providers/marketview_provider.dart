@@ -1,8 +1,9 @@
 
 
-import 'package:crypto_currency/models/AllCryptoModel.dart';
-import 'package:crypto_currency/network/api.dart';
-import 'package:crypto_currency/network/response_model.dart';
+import 'package:crypto_currency/data/data_source/api.dart';
+import 'package:crypto_currency/data/data_source/response_model.dart';
+import 'package:crypto_currency/data/models/AllCryptoModel.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 
@@ -34,7 +35,6 @@ class MarketViewProvider extends ChangeNotifier{
       state = ResponseModel.error("please check your connection...");
       notifyListeners();
 
-      print(e.toString());
     }
   }
 

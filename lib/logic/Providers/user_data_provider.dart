@@ -1,9 +1,9 @@
 
-import 'package:crypto_currency/network/api.dart';
-import 'package:crypto_currency/network/response_model.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:crypto_currency/data/data_source/api.dart';
+import 'package:crypto_currency/data/data_source/response_model.dart';
+import 'package:crypto_currency/data/models/user_model.dart';
 
-import '../models/user_model.dart';
+import 'package:flutter/material.dart';
 
 
 class UserDataProvider extends ChangeNotifier{
@@ -39,7 +39,6 @@ class UserDataProvider extends ChangeNotifier{
       // catch any error and show error
       registerStatus = ResponseModel.error("please check your connection...");
       notifyListeners();
-      print(e.toString());
     }
   }
 

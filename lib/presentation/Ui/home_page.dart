@@ -1,10 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:crypto_currency/Providers/crypto_data_provider.dart';
-import 'package:crypto_currency/Ui/Ui_helper/home_page_view.dart';
-import 'package:crypto_currency/Ui/Ui_helper/theme_switcher.dart';
-import 'package:crypto_currency/helpers/decimalRounder.dart';
-import 'package:crypto_currency/models/CryptoData.dart';
-import 'package:crypto_currency/network/response_model.dart';
+import 'package:crypto_currency/data/models/CryptoData.dart';
+import 'package:crypto_currency/logic/Providers/crypto_data_provider.dart';
+import 'package:crypto_currency/presentation/Ui/Ui_helper/home_page_view.dart';
+import 'package:crypto_currency/presentation/Ui/Ui_helper/theme_switcher.dart';
+import 'package:crypto_currency/presentation/helpers/decimalRounder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,6 +11,9 @@ import 'package:marquee/marquee.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import 'package:crypto_currency/data/data_source/response_model.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -60,7 +62,7 @@ class _HomePageState extends State<HomePage> {
         width: double.infinity,
         height: double.infinity,
         child: SingleChildScrollView(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
@@ -428,7 +430,7 @@ class _HomePageState extends State<HomePage> {
                                                 children: [
                                                   percentIcon,
                                                   Text(
-                                                    percentChange + "%",
+                                                    "$percentChange%",
                                                     style: GoogleFonts.ubuntu(
                                                         color: percentColor,
                                                         fontSize: 13),
@@ -456,7 +458,7 @@ class _HomePageState extends State<HomePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(cryptoData.state.message),
-                              CircularProgressIndicator()
+                              const CircularProgressIndicator()
                             ],
                           );
                       }

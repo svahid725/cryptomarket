@@ -1,12 +1,12 @@
 
-import 'package:crypto_currency/Providers/user_data_provider.dart';
-import 'package:crypto_currency/main_wrapper.dart';
+import 'package:crypto_currency/data/data_source/response_model.dart';
+import 'package:crypto_currency/logic/Providers/user_data_provider.dart';
+import 'package:crypto_currency/presentation/Ui/main_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
-import '../network/response_model.dart';
 
 
 
@@ -43,7 +43,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
 
     var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -170,10 +169,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     builder: (context, userDataProvider, child){
                                       switch(userDataProvider.registerStatus?.status){
                                         case Status.LOADING:
-                                          return CircularProgressIndicator();
+                                          return const CircularProgressIndicator();
                                         case Status.COMPLETED:
                                         // savedLogin(userDataProvider.registerStatus?.data);
-                                          WidgetsBinding.instance!.addPostFrameCallback((timeStamp) => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MainWrapper())));
+                                          WidgetsBinding.instance.addPostFrameCallback((timeStamp) => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MainWrapper())));
                                           return signupBtn();
                                         case Status.ERROR:
                                           return Column(
@@ -337,10 +336,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             builder: (context, userDataProvider, child){
                               switch(userDataProvider.registerStatus?.status){
                                 case Status.LOADING:
-                                  return CircularProgressIndicator();
+                                  return const CircularProgressIndicator();
                                 case Status.COMPLETED:
                                 // savedLogin(userDataProvider.registerStatus?.data);
-                                  WidgetsBinding.instance!.addPostFrameCallback((timeStamp) => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MainWrapper())));
+                                  WidgetsBinding.instance.addPostFrameCallback((timeStamp) => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MainWrapper())));
                                   return signupBtn();
                                 case Status.ERROR:
                                   return Column(
@@ -360,7 +359,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 default:
                                   return signupBtn();
                               }
-                              return signupBtn();
                             }
                         ),
 
